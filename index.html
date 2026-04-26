@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Tribe | Study Group Finder</title>
+    <meta
+      name="description"
+      content="Find Your Study Tribe. Connect with high-intent students, join live study groups, and stay locked in for every exam."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="sv-loader" aria-hidden="true">
+      <button id="sv-loader-skip" type="button">Skip</button>
+      <div class="sv-loader-inner">
+        <div class="sv-mascot" role="img" aria-label="StudyVerse mascot">
+          <svg viewBox="0 0 180 220" xmlns="http://www.w3.org/2000/svg">
+            <circle class="sv-head" cx="90" cy="44" r="24" />
+            <path class="sv-body" d="M90 68 L90 126" />
+            <path class="sv-arm sv-arm-left" d="M90 86 L54 112" />
+            <path class="sv-arm sv-arm-right" d="M90 86 L126 112" />
+            <path class="sv-leg sv-leg-left" d="M90 126 L62 178" />
+            <path class="sv-leg sv-leg-right" d="M90 126 L118 178" />
+          </svg>
+        </div>
+        <div class="sv-loader-brand">
+          <span>Study</span><span class="sv-verse">Verse</span>
+        </div>
+        <div class="sv-loader-bar">
+          <span class="sv-loader-progress"></span>
+        </div>
+      </div>
+    </div>
+
+    <div id="page-shell">
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-follower" aria-hidden="true"></div>
+
+    <div class="page-noise" aria-hidden="true"></div>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <div class="ambient ambient-three" aria-hidden="true"></div>
+
+    <nav class="floating-nav">
+      <div class="nav-mark">
+        <span class="nav-mark-icon"></span>
+        <span>StudyVerse</span>
+      </div>
+
+      <button
+        class="mobile-nav-toggle interactive"
+        type="button"
+        aria-expanded="false"
+        aria-label="Open navigation"
+      >
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#groups">Groups</a>
+        <a href="#chat">Chat</a>
+        <a href="#ai-lab">AI Lab</a>
+        <a href="#practice">Practice</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#testimonials">Stories</a>
+        <a href="#blog">Blog</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="live-badge">
+          <span class="pulse-dot"></span>
+          <span>Live Session</span>
+        </div>
+        <button class="nav-link-button interactive" type="button" data-open-modal="login">
+          Login
+        </button>
+        <button class="nav-cta interactive" type="button" data-open-modal="join">
+          Join Now
+        </button>
+      </div>
+    </nav>
+
+    <header class="hero" id="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Hackathon Project 2025</p>
+        <div class="headline-wrap">
+          <h1 class="hero-title reveal-line">Find Your</h1>
+          <h1 class="hero-title reveal-line reveal-delay">Study Tribe.</h1>
+        </div>
+        <p class="hero-body">
+          Connect with students who think like you. Join live study groups. Ace
+          every exam.
+        </p>
+        <div class="hero-stats">
+          <div class="hero-stat glass-panel">
+            <span class="hero-stat-label">Students live</span>
+            <strong class="counter" data-target="1842">0</strong>
+          </div>
+          <div class="hero-stat glass-panel">
+            <span class="hero-stat-label">Sessions today</span>
+            <strong class="counter" data-target="126">0</strong>
+          </div>
+          <div class="hero-stat glass-panel">
+            <span class="hero-stat-label">Created groups</span>
+            <strong class="counter" data-target="247">0</strong>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <button class="primary-cta interactive" type="button" data-open-modal="join">
+            Enter the Verse
+          </button>
+          <button class="ghost-cta interactive" type="button" data-scroll="#features">
+            Explore Features
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-orbital-ring orbital-one"></div>
+        <div class="hero-orbital-ring orbital-two"></div>
+
+        <div class="floating-chip chip-top-left glass-chip">247 Active Groups</div>
+        <div class="floating-chip chip-top-right glass-chip">Live Now ●</div>
+        <div class="floating-chip chip-bottom-right glass-chip">1.8K Students</div>
+
+        <div class="hero-object-wrap" id="hero-tilt">
+          <div class="hero-object" id="hero-object">
+            <div class="hero-core"></div>
+            <div class="hero-book">
+              <div class="book-panel left-panel"></div>
+              <div class="book-panel right-panel"></div>
+              <div class="book-spine"></div>
+              <div class="brain-mark">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="hero-glow-ring"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator interactive" data-scroll="#groups">
+        <span>[Scroll]</span>
+        <span class="scroll-arrow">↓</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="discovery-grid reveal section" id="discover">
+        <div class="search-panel glass-panel">
+          <div class="section-head compact-head">
+            <p class="section-kicker">Search + Filter</p>
+            <h2>Find the right room in seconds.</h2>
+            <p class="section-description">
+              Search by subject, exam, city, and study mode to instantly narrow
+              down your best-fit study circles.
+            </p>
+          </div>
+
+          <form class="search-form" id="search-form">
+            <div class="search-grid">
+              <label>
+                <span>Subject</span>
+                <select id="subject-filter">
+                  <option value="all">All Subjects</option>
+                  <option value="physics">Physics</option>
+                  <option value="coding">Coding</option>
+                  <option value="medicine">Medicine</option>
+                </select>
+              </label>
+              <label>
+                <span>Exam</span>
+                <select id="exam-filter">
+                  <option value="all">Any Exam</option>
+                  <option value="jee">JEE</option>
+                  <option value="placements">Placements</option>
+                  <option value="neet">NEET</option>
+                </select>
+              </label>
+              <label>
+                <span>City</span>
+                <select id="city-filter">
+                  <option value="all">Anywhere</option>
+                  <option value="delhi">Delhi</option>
+                  <option value="mumbai">Mumbai</option>
+                  <option value="bangalore">Bangalore</option>
+                </select>
+              </label>
+              <label>
+                <span>Mode</span>
+                <select id="mode-filter">
+                  <option value="all">Online + Offline</option>
+                  <option value="online">Online</option>
+                  <option value="offline">Offline</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="search-actions">
+              <button class="primary-cta interactive" type="submit">Search Groups</button>
+              <button class="ghost-cta interactive" type="button" data-open-modal="create">
+                Create Group
+              </button>
+            </div>
+          </form>
+
+          <div class="search-results glass-chip" id="results-summary">
+            Showing 3 matching study groups
+          </div>
+
+          <div class="result-chips" id="result-chips">
+            <button class="result-chip interactive" type="button" data-open-modal="join">
+              Quantum Problem Lab
+            </button>
+            <button class="result-chip interactive" type="button" data-open-modal="join">
+              DSA Interview Sprint
+            </button>
+            <button class="result-chip interactive" type="button" data-open-modal="join">
+              Neuro Revision Circle
+            </button>
+          </div>
+        </div>
+
+        <aside class="live-panel glass-panel">
+          <div class="live-panel-head">
+            <p class="section-kicker">Live Active Sessions</p>
+            <h3>Rooms trending right now</h3>
+          </div>
+
+          <div class="live-countdown">
+            <span>Next sprint starts in</span>
+            <strong id="countdown-timer">00:14:32</strong>
+          </div>
+
+          <div class="live-session-list">
+            <article class="live-session-item">
+              <div>
+                <p>Organic Chemistry Blitz</p>
+                <span>54 students • Online</span>
+              </div>
+              <button class="live-action interactive" type="button" data-open-modal="join">
+                Join
+              </button>
+            </article>
+            <article class="live-session-item">
+              <div>
+                <p>Binary Tree Mock Round</p>
+                <span>31 students • Bangalore Hub</span>
+              </div>
+              <button class="live-action interactive" type="button" data-open-modal="join">
+                Join
+              </button>
+            </article>
+            <article class="live-session-item">
+              <div>
+                <p>Anatomy Recall Marathon</p>
+                <span>22 students • Online</span>
+              </div>
+              <button class="live-action interactive" type="button" data-open-modal="join">
+                Join
+              </button>
+            </article>
+          </div>
+
+          <button class="secondary-cta interactive" type="button" data-open-modal="signup">
+            Join Waitlist
+          </button>
+        </aside>
+      </section>
+
+      <section class="featured reveal section" id="groups">
+        <div class="section-head">
+          <p class="section-kicker">Featured Groups</p>
+          <h2>Featured Groups</h2>
+          <p class="section-description" id="about">
+            Curated rooms for deep work, intense revision, and momentum that
+            feels contagious. Drop into live sessions or commit to recurring
+            group sprints.
+          </p>
+        </div>
+
+        <div class="group-stack">
+          <article class="group-card group-card-red interactive">
+            <div
+              class="group-card-filter-data"
+              data-subject="physics"
+              data-exam="jee"
+              data-city="delhi"
+              data-mode="online"
+            ></div>
+            <div class="group-visual">
+              <div class="visual-grid"></div>
+              <div class="subject-badge">Physics</div>
+              <div class="waveform"></div>
+            </div>
+            <div class="group-content glass-panel">
+              <p class="group-meta">84 members • 7:00 PM IST</p>
+              <h3>Quantum Problem Lab</h3>
+              <p>
+                A nightly room for derivations, timed practice, and concept
+                breakdowns with visual whiteboard sessions.
+              </p>
+              <button class="card-link interactive" type="button" data-open-modal="join">
+                Join Group
+              </button>
+            </div>
+          </article>
+
+          <article class="group-card group-card-blue interactive">
+            <div
+              class="group-card-filter-data"
+              data-subject="coding"
+              data-exam="placements"
+              data-city="bangalore"
+              data-mode="offline"
+            ></div>
+            <div class="group-visual">
+              <div class="visual-grid"></div>
+              <div class="subject-badge">Coding</div>
+              <div class="pulse-lines"></div>
+            </div>
+            <div class="group-content glass-panel">
+              <p class="group-meta">132 members • Live in 12 min</p>
+              <h3>DSA Interview Sprint</h3>
+              <p>
+                Pair up for LeetCode drills, mock interviews, and leaderboard
+                challenges built for focused accountability.
+              </p>
+              <button class="card-link interactive" type="button" data-open-modal="join">
+                Reserve Seat
+              </button>
+            </div>
+          </article>
+
+          <article class="group-card group-card-purple interactive">
+            <div
+              class="group-card-filter-data"
+              data-subject="medicine"
+              data-exam="neet"
+              data-city="mumbai"
+              data-mode="online"
+            ></div>
+            <div class="group-visual">
+              <div class="visual-grid"></div>
+              <div class="subject-badge">Medicine</div>
+              <div class="constellation"></div>
+            </div>
+            <div class="group-content glass-panel">
+              <p class="group-meta">59 members • Weekend cohort</p>
+              <h3>Neuro Revision Circle</h3>
+              <p>
+                Flashcard battles, case walkthroughs, and spaced repetition for
+                students who need high-retention sessions.
+              </p>
+              <button class="card-link interactive" type="button" data-open-modal="join">
+                View Cohort
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="feature-showcase reveal section" id="features">
+        <div class="showcase-copy">
+          <p class="section-kicker">Words That Work</p>
+          <div class="feature-tabs" role="tablist" aria-label="Feature Tabs">
+            <button
+              class="feature-tab interactive active"
+              data-feature="find"
+              role="tab"
+              aria-selected="true"
+            >
+              Find Groups
+            </button>
+            <button
+              class="feature-tab interactive"
+              data-feature="live"
+              role="tab"
+              aria-selected="false"
+            >
+              Live Sessions
+            </button>
+            <button
+              class="feature-tab interactive"
+              data-feature="match"
+              role="tab"
+              aria-selected="false"
+            >
+              Smart Match
+            </button>
+          </div>
+
+          <h2 id="feature-title">Join rooms that already match your momentum.</h2>
+          <p class="section-description" id="feature-body">
+            Filter by subject, exam date, vibe, and pace. Instantly discover
+            groups that feel aligned before you even say hello.
+          </p>
+
+          <div class="feature-points" id="feature-points">
+            <div class="feature-point glass-chip">Topic-first discovery</div>
+            <div class="feature-point glass-chip">Exam countdown filters</div>
+            <div class="feature-point glass-chip">Deep focus cohorts</div>
+          </div>
+        </div>
+
+        <div class="showcase-panel">
+          <div class="ui-panel glass-panel">
+            <div class="panel-topbar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <div class="panel-body" id="feature-preview">
+              <div class="preview-stat">
+                <p>Top Match</p>
+                <strong>Data Structures • 96%</strong>
+              </div>
+
+              <div class="preview-card">
+                <div>
+                  <p class="preview-label">Live Cohort</p>
+                  <h3>Night Owl Revision Grid</h3>
+                </div>
+                <span>24 / 30 seats</span>
+              </div>
+
+              <div class="preview-list">
+                <div>
+                  <span>Vibe</span>
+                  <strong>Quiet Focus</strong>
+                </div>
+                <div>
+                  <span>Mode</span>
+                  <strong>Pomodoro 50/10</strong>
+                </div>
+                <div>
+                  <span>Best For</span>
+                  <strong>Exam Week</strong>
+                </div>
+              </div>
+
+              <div class="panel-glow"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="quiz-section reveal section" id="quiz">
+        <div class="quiz-copy">
+          <p class="section-kicker">Smart Group Matching Quiz</p>
+          <h2>Answer 3 quick questions. Get your best-fit study tribe.</h2>
+          <p class="section-description">
+            Perfect for hackathon demos: a lightweight recommendation engine
+            that instantly suggests your best next group.
+          </p>
+        </div>
+
+        <div class="quiz-layout">
+          <form class="quiz-form glass-panel" id="match-form">
+            <label>
+              <span>Your target</span>
+              <select id="goal-input">
+                <option value="rank">Top rank / score boost</option>
+                <option value="consistency">Daily consistency</option>
+                <option value="revision">Fast revision</option>
+              </select>
+            </label>
+            <label>
+              <span>Preferred style</span>
+              <select id="style-input">
+                <option value="quiet">Quiet focus</option>
+                <option value="competitive">Competitive sprint</option>
+                <option value="collab">Collaborative discussion</option>
+              </select>
+            </label>
+            <label>
+              <span>Best study time</span>
+              <select id="time-input">
+                <option value="night">Night</option>
+                <option value="evening">Evening</option>
+                <option value="morning">Morning</option>
+              </select>
+            </label>
+            <button class="primary-cta interactive" type="submit">Match Me Now</button>
+          </form>
+
+          <div class="quiz-result glass-panel" id="quiz-result">
+            <p class="quiz-result-label">Recommended Match</p>
+            <h3>Night Owl Revision Grid</h3>
+            <p>
+              Best for focused students who want a calm room, structured
+              sessions, and a reliable nightly streak.
+            </p>
+            <div class="feature-points">
+              <div class="feature-point glass-chip">96% compatibility</div>
+              <div class="feature-point glass-chip">Night routine</div>
+              <div class="feature-point glass-chip">Quiet focus vibe</div>
+            </div>
+            <button class="secondary-cta interactive" type="button" data-open-modal="join">
+              Join This Group
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="collab-section reveal section" id="chat">
+        <div class="section-head">
+          <p class="section-kicker">Common Chat</p>
+          <h2>Study together in live rooms that stay active.</h2>
+          <p class="section-description">
+            Switch between rooms, post quick doubts, pin momentum updates, and
+            keep your study streak moving with a shared common chat.
+          </p>
+        </div>
+
+        <div class="collab-layout">
+          <aside class="room-sidebar glass-panel">
+            <div class="room-sidebar-top">
+              <h3>Rooms</h3>
+              <button
+                class="secondary-cta interactive room-create-button"
+                type="button"
+                id="create-room-button"
+              >
+                New Room
+              </button>
+            </div>
+
+            <label class="chat-user-label">
+              <span>Your name</span>
+              <input id="chat-username" type="text" placeholder="Enter your name" />
+            </label>
+
+            <div class="room-list" id="room-list"></div>
+
+            <form class="room-create-form" id="room-create-form">
+              <input id="new-room-name" type="text" placeholder="Create a new room" />
+              <button class="primary-cta interactive" type="submit">Add Room</button>
+            </form>
+          </aside>
+
+          <div class="chat-panel glass-panel">
+            <div class="chat-panel-head">
+              <div>
+                <p class="section-kicker">Active Room</p>
+                <h3 id="chat-room-title"># common-lobby</h3>
+              </div>
+              <div class="chat-presence">
+                <span class="pulse-dot"></span>
+                <strong id="chat-room-meta">12 members online</strong>
+              </div>
+            </div>
+
+            <div class="chat-messages" id="chat-messages"></div>
+
+            <form class="chat-input-row" id="chat-form">
+              <input
+                id="chat-input"
+                type="text"
+                placeholder="Type a message to the room..."
+                autocomplete="off"
+              />
+              <button class="primary-cta interactive" type="submit">Send</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="ai-lab reveal section" id="ai-lab">
+        <div class="section-head">
+          <p class="section-kicker">AI Study Lab</p>
+          <h2>Suggest questions, explain doubts, and plan revision by exam.</h2>
+          <p class="section-description">
+            Connect your Anthropic API key on the backend, pick your exam, and generate
+            exam-specific practice questions or ask targeted study doubts.
+          </p>
+        </div>
+
+        <div class="ai-grid">
+          <div class="ai-control-panel glass-panel">
+            <div class="ai-settings">
+              <div class="ai-settings-row">
+                <label>
+                  <span>Anthropic Model</span>
+                  <input
+                    id="openai-model"
+                    type="text"
+                    value="claude-sonnet-4-20250514"
+                  />
+                </label>
+                <button class="secondary-cta interactive" type="button" id="check-server-status">
+                  Check Server
+                </button>
+              </div>
+              <p class="ai-key-status" id="ai-key-status">
+                AI requests run through the backend. Set `ANTHROPIC_API_KEY` on the server to enable them.
+              </p>
+            </div>
+
+            <form class="ai-question-form" id="ai-question-form">
+              <div class="search-grid ai-query-grid">
+                <label>
+                  <span>Exam</span>
+                  <select id="ai-exam">
+                    <option value="JEE Main">JEE Main</option>
+                    <option value="NEET">NEET</option>
+                    <option value="Placements">Placements</option>
+                    <option value="Semester Exams">Semester Exams</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Subject</span>
+                  <select id="ai-subject">
+                    <option value="Physics">Physics</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Data Structures">Data Structures</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Difficulty</span>
+                  <select id="ai-difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Question count</span>
+                  <select id="ai-count">
+                    <option value="3">3</option>
+                    <option value="5" selected>5</option>
+                    <option value="8">8</option>
+                  </select>
+                </label>
+              </div>
+
+              <textarea
+                id="ai-prompt"
+                rows="5"
+                placeholder="Ask AI to explain a chapter, generate revision questions, or suggest a practice plan..."
+              ></textarea>
+
+              <div class="ai-actions">
+                <button class="primary-cta interactive" type="submit" data-ai-action="questions">
+                  Suggest Questions
+                </button>
+                <button class="ghost-cta interactive" type="button" id="ask-ai-doubt">
+                  Solve My Doubt
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="ai-output-panel glass-panel">
+            <div class="ai-output-head">
+              <div>
+                <p class="section-kicker">AI Output</p>
+                <h3>Questions and answers</h3>
+              </div>
+              <button class="secondary-cta interactive" type="button" id="load-suggested-prompt">
+                Load Example
+              </button>
+            </div>
+            <div class="ai-output-body" id="ai-output">
+              <p class="ai-output-placeholder">
+                Your generated questions, AI explanations, and revision advice
+                will appear here.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="practice-section reveal section" id="practice">
+        <div class="section-head">
+          <p class="section-kicker">Coding Practice Arena</p>
+          <h2>Solve coding problems inside the platform and run test cases.</h2>
+          <p class="section-description">
+            Pick a challenge, write JavaScript in the browser, run tests, and
+            iterate without leaving the study experience.
+          </p>
+        </div>
+
+        <div class="practice-layout">
+          <aside class="practice-problems glass-panel">
+            <div class="practice-head">
+              <h3>Challenges</h3>
+              <span id="practice-problem-difficulty">Easy</span>
+            </div>
+            <div class="problem-list" id="problem-list"></div>
+          </aside>
+
+          <div class="practice-workspace">
+            <div class="problem-card glass-panel">
+              <div class="problem-card-head">
+                <div>
+                  <p class="section-kicker">Selected Problem</p>
+                  <h3 id="problem-title">Two Sum Indices</h3>
+                </div>
+                <button class="secondary-cta interactive" type="button" id="reset-code">
+                  Reset Code
+                </button>
+              </div>
+              <p class="problem-description" id="problem-description"></p>
+              <div class="problem-meta-row">
+                <div class="feature-point glass-chip" id="problem-topic-chip">Arrays</div>
+                <div class="feature-point glass-chip" id="problem-level-chip">Easy</div>
+              </div>
+            </div>
+
+            <div class="code-shell glass-panel">
+              <textarea id="code-editor" spellcheck="false"></textarea>
+              <div class="code-actions">
+                <button class="primary-cta interactive" type="button" id="run-code">
+                  Run Tests
+                </button>
+                <button class="ghost-cta interactive" type="button" id="explain-problem">
+                  Explain With AI
+                </button>
+              </div>
+              <div class="test-output" id="test-output">
+                Select a problem and run the provided test cases.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonials reveal section" id="testimonials">
+        <div class="section-head">
+          <p class="section-kicker">Student Testimonials</p>
+          <h2>Built for students who want momentum, not noise.</h2>
+        </div>
+
+        <div class="testimonial-grid">
+          <article class="testimonial-card glass-panel">
+            <p>
+              “Mujhe random Discord servers se better yahan actual focused
+              people mile. Hamara group daily 2 hours sprint karta hai.”
+            </p>
+            <strong>Aarav • JEE Aspirant</strong>
+          </article>
+          <article class="testimonial-card glass-panel">
+            <p>
+              “Placements ke liye mock interview room game changer tha. Main
+              finally consistent reh payi.”
+            </p>
+            <strong>Sana • CS Final Year</strong>
+          </article>
+          <article class="testimonial-card glass-panel">
+            <p>
+              “Live anatomy recall sessions ne revision ko much less lonely bana
+              diya. Retention visibly improve hua.”
+            </p>
+            <strong>Krisha • MBBS Student</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="faq-section reveal section" id="faq">
+        <div class="section-head compact-head">
+          <p class="section-kicker">FAQ</p>
+          <h2>Everything students usually ask first.</h2>
+        </div>
+
+        <div class="faq-list">
+          <article class="faq-item glass-panel">
+            <button class="faq-question interactive" type="button" aria-expanded="false">
+              Can I create my own study group?
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes. Use the create-group modal to set subject, exam, session
+                type, and time slots, then share your room instantly.
+              </p>
+            </div>
+          </article>
+          <article class="faq-item glass-panel">
+            <button class="faq-question interactive" type="button" aria-expanded="false">
+              Is this only for online sessions?
+            </button>
+            <div class="faq-answer">
+              <p>
+                No. You can filter by online, offline, or hybrid groups and
+                even narrow them by city for local study circles.
+              </p>
+            </div>
+          </article>
+          <article class="faq-item glass-panel">
+            <button class="faq-question interactive" type="button" aria-expanded="false">
+              How does smart matching work?
+            </button>
+            <div class="faq-answer">
+              <p>
+                It looks at your goal, preferred study vibe, and ideal timing
+                to suggest rooms with similar pace and intent.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="waitlist-cta reveal section" id="blog">
+        <div class="waitlist-card glass-panel">
+          <div>
+            <p class="section-kicker">Final CTA</p>
+            <h2>Join the waitlist. Launch with your tribe from day one.</h2>
+            <p class="section-description">
+              Get early access, creator perks, and priority invites for live
+              subject communities.
+            </p>
+          </div>
+          <div class="waitlist-actions">
+            <button class="primary-cta interactive" type="button" data-open-modal="signup">
+              Sign Up
+            </button>
+            <button class="ghost-cta interactive" type="button" data-open-modal="create">
+              Create a Group
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer reveal section">
+      <p>StudyVerse Hackathon Landing Experience</p>
+      <a class="interactive" href="#hero">Back to top</a>
+    </footer>
+
+    <div class="modal-backdrop" id="modal-backdrop" hidden>
+      <div class="modal-shell glass-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close interactive" type="button" id="modal-close" aria-label="Close modal">
+          ×
+        </button>
+
+        <div class="modal-tabs">
+          <button class="modal-tab interactive active" type="button" data-modal-view="join">
+            Join Group
+          </button>
+          <button class="modal-tab interactive" type="button" data-modal-view="create">
+            Create Group
+          </button>
+          <button class="modal-tab interactive" type="button" data-modal-view="signup">
+            Sign Up
+          </button>
+          <button class="modal-tab interactive" type="button" data-modal-view="login">
+            Login
+          </button>
+        </div>
+
+        <div class="modal-view active" data-view="join">
+          <h3 id="modal-title">Join a live study group</h3>
+          <form class="modal-form">
+            <label>
+              <span>Name</span>
+              <input type="text" placeholder="Your name" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" placeholder="you@example.com" />
+            </label>
+            <label>
+              <span>Interested group</span>
+              <select>
+                <option>Quantum Problem Lab</option>
+                <option>DSA Interview Sprint</option>
+                <option>Neuro Revision Circle</option>
+              </select>
+            </label>
+            <button class="primary-cta interactive" type="submit">Request Invite</button>
+          </form>
+        </div>
+
+        <div class="modal-view" data-view="create">
+          <h3>Create your own study room</h3>
+          <form class="modal-form">
+            <label>
+              <span>Group name</span>
+              <input type="text" placeholder="Night Revision Squad" />
+            </label>
+            <label>
+              <span>Subject</span>
+              <input type="text" placeholder="Physics / DSA / Anatomy" />
+            </label>
+            <label>
+              <span>Mode</span>
+              <select>
+                <option>Online</option>
+                <option>Offline</option>
+                <option>Hybrid</option>
+              </select>
+            </label>
+            <button class="primary-cta interactive" type="submit">Create Group</button>
+          </form>
+        </div>
+
+        <div class="modal-view" data-view="signup">
+          <h3>Get early access</h3>
+          <form class="modal-form">
+            <label>
+              <span>Full name</span>
+              <input type="text" placeholder="Your name" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" placeholder="you@example.com" />
+            </label>
+            <label>
+              <span>Role</span>
+              <select>
+                <option>Student</option>
+                <option>Community lead</option>
+                <option>Mentor</option>
+              </select>
+            </label>
+            <button class="primary-cta interactive" type="submit">Join Waitlist</button>
+          </form>
+        </div>
+
+        <div class="modal-view" data-view="login">
+          <h3>Welcome back</h3>
+          <form class="modal-form">
+            <label>
+              <span>Email</span>
+              <input type="email" placeholder="you@example.com" />
+            </label>
+            <label>
+              <span>Password</span>
+              <input type="password" placeholder="Password" />
+            </label>
+            <button class="primary-cta interactive" type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

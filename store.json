@@ -1,0 +1,45 @@
+{
+  "rooms": [
+    {
+      "id": "common-lobby",
+      "name": "common-lobby",
+      "membersOnline": 12,
+      "messages": [
+        {
+          "user": "Riya",
+          "text": "8 PM se derivation sprint start ho raha hai. Join if you're revising electrostatics.",
+          "time": "08:04 PM"
+        },
+        {
+          "user": "Aarav",
+          "text": "Kisi ke paas NLM ke tricky rotation questions hain kya?",
+          "time": "08:07 PM"
+        }
+      ]
+    },
+    {
+      "id": "placements-hub",
+      "name": "placements-hub",
+      "membersOnline": 9,
+      "messages": [
+        {
+          "user": "Sana",
+          "text": "Aaj stack + monotonic queue revision karte hain. 25 mins me room live.",
+          "time": "07:42 PM"
+        }
+      ]
+    },
+    {
+      "id": "neet-revision",
+      "name": "neet-revision",
+      "membersOnline": 7,
+      "messages": [
+        {
+          "user": "Krisha",
+          "text": "Biomolecules ke NCERT line-based questions add kar diye. Check pinned notes.",
+          "time": "06:58 PM"
+        }
+      ]
+    }
+  ]
+}
